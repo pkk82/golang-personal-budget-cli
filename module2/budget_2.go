@@ -88,7 +88,10 @@ func CreateBudget(month time.Month, max float32) (*Budget, error) {
 
 // GetBudget returns budget for given month
 func GetBudget(month time.Month) *Budget {
-
+	budget, hasEntry := report[month]
+	if hasEntry {
+		return budget
+	}
 	return nil
 }
 
